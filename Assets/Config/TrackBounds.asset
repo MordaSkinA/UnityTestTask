@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: TrackBounds
   m_EditorClassIdentifier: Assembly-CSharp::Game.Config.TrackBounds
   minX: -3
-  maxX: 6
+  maxX: 7
