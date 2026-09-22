@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ff98db2aded23b4ebb766cee09a9f07, type: 3}
+  m_Name: WealthTiers_Main
+  m_EditorClassIdentifier: Assembly-CSharp::WealthTiers
+  tiers:
+  - tierName: Poor
+    characterModelPrefab: {fileID: 580003119709788598, guid: df68bc8895ca1c44885a75263eb9bc8a, type: 3}
+    statusPopupLabel: POOR
+    environmentThemePrefab: {fileID: 0}
+  - tierName: Middle
+    characterModelPrefab: {fileID: 4128020313969985640, guid: 0262c751445ce0643b8d5a1010e6230c, type: 3}
+    statusPopupLabel: DECENT
+    environmentThemePrefab: {fileID: 0}
+  - tierName: Rich
+    characterModelPrefab: {fileID: 8126662650719762178, guid: a67516723c01a3043bd51e48a4c9dfd5, type: 3}
+    statusPopupLabel: RICH
+    environmentThemePrefab: {fileID: 0}
