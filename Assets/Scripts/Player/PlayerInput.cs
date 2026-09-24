@@ -6,11 +6,13 @@ public class PlayerInput : MonoBehaviour
 {
 
     [SerializeField] float dragSensitivity = 0.05f;
+    [SerializeField] float minSwipeDistance = 15f;
 
     PlayerLocomotion locomotion;
     bool isDragging;
     private bool isFirstInputSent;
-    private Vector2 lastPointerPosition;
+    Vector2 lastPointerPosition;
+    Vector2 dragStartPosition;
 
     public event Action OnFirstInput;
 
@@ -51,6 +53,7 @@ public class PlayerInput : MonoBehaviour
         {
             isDragging = true;
             lastPointerPosition = pointerPosition;
+            dragStartPosition = pointerPosition;
         } else if (isPointerHeld && isDragging)
         {
             float deltaX = pointerPosition.x - lastPointerPosition.x;
@@ -60,7 +63,7 @@ public class PlayerInput : MonoBehaviour
             locomotion.HorizontalInput = dt > 0f ? deltaX * dragSensitivity / dt : 0f;
 
 
-            if (!isFirstInputSent)
+            if (!isFirstInputSent && Vector2.Distance(pointerPosition, dragStartPosition) >= minSwipeDistance)
             {
                 isFirstInputSent = true;
                 OnFirstInput?.Invoke();

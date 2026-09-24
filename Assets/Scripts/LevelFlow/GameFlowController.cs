@@ -22,12 +22,15 @@ public class GameFlowController : MonoBehaviour
 
     void Awake()
     {
+        Debug.Log("[GameFlowController] Awake start");
         playerLocomotion.enabled = false;
         playerInput.enabled = false;
+        Debug.Log($"[GameFlowController] Awake end, locomotion.enabled={playerLocomotion.enabled}, input.enabled={playerInput.enabled}");
     }
 
     void Start()
     {
+        Debug.Log("[GameFlowController] Start called");
         levelManager.Init();
         levelManager.OnLevelStarted += HandleLevelStarted;
 
@@ -40,6 +43,7 @@ public class GameFlowController : MonoBehaviour
             loseTrigger.OnPlayerLost += HandleLevelLost;
 
         BeginLevel();
+        Debug.Log($"[GameFlowController] after BeginLevel, locomotion.enabled={playerLocomotion.enabled}, input.enabled={playerInput.enabled}");
     }
 
     void OnDestroy()
@@ -68,6 +72,7 @@ public class GameFlowController : MonoBehaviour
 
     void HandleFirstInput()
     {
+        Debug.Log($"[GameFlowController] HandleFirstInput at frame {Time.frameCount}");
         playerLocomotion.enabled = true;
         levelManager.StartLevel();
 
